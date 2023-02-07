@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:video_player_sample/cubit/video_player_cubit.dart';
 import 'package:video_player_sample/ui/single_video/single_video_page.dart';
+import 'package:video_player_sample/ui/video_list/video_list_page.dart';
 
 
 
@@ -8,7 +11,11 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MyApp();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) =>  VideoPlayerCubit(),)
+      ],
+        child: MyApp());
   }
 }
 
@@ -24,7 +31,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SingleVideoPage(),
+      home: const VideoList(),
     );
   }
 }

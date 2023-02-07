@@ -4,31 +4,32 @@ part of 'video_player_cubit.dart';
 class VideoPlayerState extends Equatable {
   int currentVideoIndex;
   Duration maxDuration;
-  Duration currentPosition;
+  VideoPlayerController? videoPlayerController;
 
   VideoPlayerState({
+    this.videoPlayerController,
     required this.currentVideoIndex,
     required this.maxDuration,
-    required this.currentPosition,
   });
 
   copyWith({
-    int? currentVideoIndex,
     Duration? maxDuration,
-    Duration? currentPosition,
+    int? currentVideoIndex,
+    VideoPlayerController? videoPlayerController,
   }) {
     return VideoPlayerState(
+      videoPlayerController: videoPlayerController??this.videoPlayerController,
       currentVideoIndex: currentVideoIndex ?? this.currentVideoIndex,
       maxDuration: maxDuration ?? this.maxDuration,
-      currentPosition: currentPosition ?? this.currentPosition,
     );
   }
 
   @override
   // TODO: implement props
   List<Object?> get props => [
-        currentDuration,
+    videoPlayerController,
         maxDuration,
         currentVideoIndex,
+
       ];
 }
