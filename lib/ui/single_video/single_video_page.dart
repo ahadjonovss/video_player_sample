@@ -56,7 +56,7 @@ class _SingleVideoPageState extends State<SingleVideoPage> {
                           context.read<VideoPlayerCubit>().skipVideo((--state.currentVideoIndex)%3);
 
                         },
-                      ):SizedBox(),
+                      ): const SizedBox(),
                       CustomButton(
                           icon: state.status == VideoStatus.PLAYING
                               ? Icons.pause

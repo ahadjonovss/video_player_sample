@@ -18,7 +18,7 @@ class VideoList extends StatelessWidget {
               onTap: () async {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => SingleVideoPage(index: ++index),));
               },
-                child: ListTile(title: Text("$index - video"))),
+                child: ListTile(title: Text("${index+1} - video"))),
       ),
     );
   }
