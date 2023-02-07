@@ -65,12 +65,14 @@ class _SingleVideoPageState extends State<SingleVideoPage> {
                             context.read<VideoPlayerCubit>().playVideo();
                           },
                           isPlay: true),
-                      CustomButton(
+                      state.currentVideoIndex!=3?CustomButton(
                         icon: Icons.skip_next,
                         action: () {
-                          context.read<VideoPlayerCubit>().skipVideo((++state.currentVideoIndex)%3);
+                          if(state.currentVideoIndex!=3){
+                            context.read<VideoPlayerCubit>().skipVideo(++state.currentVideoIndex);
+                          }
                         },
-                      ),
+                      ):SizedBox(),
                     ],
                   ),
                 ),
