@@ -9,14 +9,14 @@ class VideoList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("All videos")),
+      appBar: AppBar(title: const Text("All videos")),
       body: ListView.builder(
         shrinkWrap: true,
         itemCount: 3,
         itemBuilder: (context, index) =>
             InkWell(
               onTap: () async {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => SingleVideoPage(index: index+1),));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SingleVideoPage(index: ++index),));
               },
                 child: ListTile(title: Text("$index - video"))),
       ),
